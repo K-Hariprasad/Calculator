@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h1>CALCULATOR</h1>
+        </div>
+        <div>
+            <input type="number" placeholder="Type first number" id="firstInput" onblur="validateFirst()">
+            <div id="msg1"></div>
+            <input type="number" placeholder="Type second number" id="secondInput" onblur="validateSecond()">
+            <div id="msg2"></div>
+        </div>
+        <div>
+            <button onclick="operation(value)" value="+">+</button>
+            <button onclick="operation(value)" value="-">-</button>
+            <button onclick="operation(value)" value="*">X</button>
+            <button onclick="operation(value)" value="/">/</button>
+        </div>
+        <div>
+            <button onclick="calculate()">Calculate</button>
+        </div>
+        <div id="result"></div>
+    </div> 
+</body>
+<script>
+    validateFirst=()=>{
+        var first = document.getElementById("firstInput").value
+        if(!first){
+            document.getElementById("msg1").innerText="Field can't be empty"
+        }
+        else{
+            document.getElementById("msg1").innerText=""
+        }
+    }
+    validateSecond=()=>{
+        var second = document.getElementById("secondInput").value
+        if(!second){
+            document.getElementById("msg2").innerText="Field can't be empty"
+        }
+        else{
+            document.getElementById("msg2").innerText=""
+        }
+    }
+    operation=(value)=>{
+        var first = document.getElementById("firstInput").value
+        var second = document.getElementById("secondInput").value
+        var op = value
+        final = first + op + second
+    }
+    calculate=()=>{
+        try{
+        result = eval(final)
+        document.getElementById("result").innerText=result
+        }
+        catch(error){
+        document.getElementById("result").innerText="Something wrong!!"
+        }
+    }
+    
+</script>
+</html>
