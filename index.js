@@ -20,6 +20,13 @@
     operation=(value)=>{
         op = value
     }
+    clearScreen=()=>{
+        document.getElementById("firstInput").value = ""
+        document.getElementById("secondInput").value = ""
+
+        document.getElementById("screen").innerText=""
+        document.getElementById("result").innerHTML=""
+    }
     calculate=()=>{
         var first = document.getElementById("firstInput").value
         var second = document.getElementById("secondInput").value
